@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.10.2)
+project("yoloncnn")
+set(ncnn_DIR ${CMAKE_SOURCE_DIR}/../jni/ncnn-android-vulkan/${ANDROID_ABI}/lib/cmake/ncnn)
+find_package(ncnn REQUIRED)
+add_library(yoloncnn SHARED yolo_jni.cpp)
+target_link_libraries(yoloncnn ncnn log jnigraphics vulkan)
